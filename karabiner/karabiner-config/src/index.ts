@@ -27,15 +27,19 @@ const allKeys = [...numbers, ...letters, ...symbols] as const
 
 const dash = {
   python: open('"dash://.python:"'),
-  ts: openInBackground('"dash-plugin://query=.tsprofile%3A&prevent_activation=true"'),
-  rust: openInBackground('"dash-plugin://query=.tsprofile%3A&prevent_activation=true"'),
+  ts: openInBackground(
+    '"dash-plugin://query=.tsprofile%3A&prevent_activation=true"'
+  ),
+  rust: openInBackground(
+    '"dash-plugin://query=.tsprofile%3A&prevent_activation=true"'
+  ),
   swift: open('"dash-plugin://query=.swiftprofile%3A&prevent_activation=true"'),
   go: open('"dash-plugin://query=.goprofile%3A&prevent_activation=true"'),
 }
 
 writeToProfile(
-  // "--dry-run", // prints to console
-  "karabiner.ts", // adds it to karabiner.ts profile
+  // "--dry-run",
+  "karabiner.ts",
   [
     // colonkey (shift)
     simlayer("semicolon").manipulators([
@@ -101,13 +105,17 @@ writeToProfile(
     ]),
 
     rule("jsim").manipulators([
-      mapSimultaneous(["j", "k"]).to(alfred("search google", "net.deanishe.alfred-searchio")),
+      mapSimultaneous(["j", "k"]).to(
+        alfred("search google", "net.deanishe.alfred-searchio")
+      ),
       mapSimultaneous(["j", ";"]).to(9, "⌘⌥⇧"), // Raycast
       mapSimultaneous(["j", "l"]).to("␣", "Hyper"), // Raycast
     ]),
 
     rule("ksim").manipulators([
-      mapSimultaneous(["k", "l"]).to(alfred("search dash", "com.kapeli.dash.workflow")),
+      mapSimultaneous(["k", "l"]).to(
+        alfred("search dash", "com.kapeli.dash.workflow")
+      ),
     ]),
 
     simlayer("w").manipulators({
